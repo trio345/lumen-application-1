@@ -31,13 +31,13 @@ class CommentController extends Controller
     public function create(Request $request){
         
         $data = [
-            "id" => $request->input('id'),
             "content" => $request->input('content'),
             "status" => $request->input('status'),
             "create_time" => $request->input('create_time'),
             "author_id" => $request->input('author_id'),
             "email" => $request->input('email'),
-            "post_id" => $request->input('post_id')
+            "post_id" => $request->input('post_id'),
+            "url" => $request->input('url')
         ];
 
         if ( Comment::create($data) ){
@@ -53,7 +53,7 @@ class CommentController extends Controller
 
 
     public function find($id){
-        $data = Comment::find($id)->get();
+        $data = Comment::find($id);
         Log::info("Get data Comment with id $id");
         return response($content = ["status" => "success", "results" => $data], $status = 201)
                         ->header('content-type', 'application/json')
@@ -71,8 +71,7 @@ class CommentController extends Controller
     public function update(Request $request, $id){
         $comment = Comment::find($id);
         $comment->content =  $request->input('content');
-        $comment->status = $request->input('status');
-        $comment->create_time =  $request->input('create_time');
+        $comment->url =  $request->input('url');
         $comment->author_id =  $request->input('author_id');
         $comment->email =  $request->input('email');
         $comment->post_id =  $request->input('post_id');

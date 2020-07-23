@@ -40,9 +40,9 @@ $router->group(['middleware' => 'jwtchecker'], function() use($router){
     // comment route
     $router->post('/comment', 'CommentController@create');
     $router->get('/comment', 'CommentController@index');
-    $router->get('/comment/{id}', 'CommentController@get');
+    $router->get('/comment/{id}', 'CommentController@find');
     $router->patch('/comment/{id}', 'CommentController@update');
-    $router->delete('/comment/{id}', 'CommentController@del');
+    $router->delete('/comment/{id}', 'CommentController@delete');
 });
 
 

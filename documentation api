@@ -1,0 +1,286 @@
+=== Get Token ===
+/gettoken
+{
+	"username" : "trios",
+	"password" : "trios"
+}
+response :
+{
+    "messages": "Register Success",
+    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsdW1lbiIsInN1YiI6IkZBSFJVTCIsInBhc3MiOiIxMjMyMTMyMSIsImlhdCI6MTU5NTQ5MjQzMywibmJmIjoxNTk1NDkyNDMzfQ.VrdokdvOW-VgRQYjMuB773pR6nWTCWPNAoDWhWdcu2k"
+}
+
+=== Author ===
+// /post
+body : {
+	"username" : "trios",
+	"password" : "trios",
+	"salt" : "salt",
+	"email" : "triosaputra308@gmail.com",
+	"profile" : "triosaputra"
+}
+
+response : 
+{
+    "status": "success",
+    "results": [
+        {
+            "id": 1,
+            "username": "trios",
+            "password": "dwdw",
+            "salt": "dede",
+            "email": "trios@gmail.com",
+            "profile": "dudududu",
+            "created_at": "2020-07-22T17:12:37.000000Z",
+            "updated_at": "2020-07-22T17:12:37.000000Z"
+        },
+        {
+            "id": 3,
+            "username": "trios",
+            "password": "12345",
+            "salt": "rerer",
+            "email": "trio@gmail.com",
+            "profile": "pelajar",
+            "created_at": "2020-07-23T09:02:09.000000Z",
+            "updated_at": "2020-07-23T09:02:09.000000Z"
+        },
+        {
+            "id": 4,
+            "username": "trios",
+            "password": "12345",
+            "salt": "rerer",
+            "email": "trio@gmail.com",
+            "profile": "pelajar",
+            "created_at": "2020-07-23T09:02:57.000000Z",
+            "updated_at": "2020-07-23T09:02:57.000000Z"
+        }
+    ]
+}
+
+// /get https://lumen-application.herokuapp.com/author/
+response : 
+
+// /get{id} https://lumen-application.herokuapp.com/author/4
+
+response : [
+    {
+        "id": 4,
+        "username": "trios",
+        "password": "12345",
+        "salt": "rerer",
+        "email": "trio@gmail.com",
+        "profile": "pelajar",
+        "created_at": "2020-07-23T09:02:57.000000Z",
+        "updated_at": "2020-07-23T09:02:57.000000Z",
+        "posts": []
+    }
+]
+
+// delete https://lumen-application.herokuapp.com/author/4
+response : {
+    "messages ": "success"
+}
+
+// patch https://lumen-application.herokuapp.com/author/4
+request : {
+    "username":"fahrul",
+    "password":"23432432",
+    "salt":"rerer",
+    "email":"trio@gmail.com",
+    "profile" : "karyawan"
+}
+
+response : {
+    "messages": "success",
+    "new_data": {
+        "id": 2,
+        "username": "fahrul",
+        "password": "23432432",
+        "salt": "rerer",
+        "email": "trio@gmail.com",
+        "profile": "karyawan",
+        "created_at": "2020-07-22T06:48:21.000000Z",
+        "updated_at": "2020-07-22T09:17:44.000000Z"
+    }
+}
+
+
+=== POST ===
+// /post
+body : {
+    "title": "gospot",
+    "content": "ini adalah gospot",
+    "tags" : "gospot/title",
+    "status" : "terkirim",
+    "author_id" : 6
+}
+
+response : {
+    "status": "success",
+    "results": "Data Berhasil ditambah"
+}
+// /get 
+response :[
+    {
+        "id": 1,
+        "title": "Rembulan tenggelam dimatamu",
+        "content": "Novel yang sangat menarik",
+        "tags": "fiksi/",
+        "status": "Credited",
+        "author_id": 1,
+        "created_at": "2020-07-22T17:16:41.000000Z",
+        "updated_at": "2020-07-22T17:16:41.000000Z",
+        "comments": []
+    },
+    {
+        "id": 6,
+        "title": "gospot",
+        "content": "ini adalah gospot",
+        "tags": "gospot/title",
+        "status": "terkirim",
+        "author_id": 6,
+        "created_at": "2020-07-23T08:58:15.000000Z",
+        "updated_at": "2020-07-23T08:58:15.000000Z",
+        "comments": []
+    }
+] 
+
+=== Comment === 
+// /post
+body : {
+    "content" : "Seru banget ceritanya, alurnya jelas",
+    "status" : "terkirim",
+    "create_time" : "10-02-2001",
+    "author_id" : "1",
+    "email" : "triosaputra308@gmail.com",
+    "post_id" : 1
+}
+response : {
+	"status" : "success",
+	"messages" : "Berhasil ditambah",
+	"results" : [
+	{
+    "content" : "Seru banget ceritanya, alurnya jelas",
+    "status" : "terkirim",
+    "create_time" : "10-02-2001",
+    "author_id" : "1",
+    "email" : "triosaputra308@gmail.com",
+    "post_id" : 1
+}
+]
+
+
+// /get https://lumen-application.herokuapp.com/comment
+response : {
+    "messages": "success",
+    "results": [
+	{
+    "content" : "Seru banget ceritanya, alurnya jelas",
+    "status" : "terkirim",
+    "create_time" : "10-02-2001",
+    "author_id" : "1",
+    "email" : "triosaputra308@gmail.com",
+    "post_id" : 1
+}
+]
+}
+
+// get/{id} https://lumen-application.herokuapp.com/comment/1
+response : 
+
+
+// post 
+request : {
+    "content" : "Seru banget ceritanya, alurnya jelas",
+    "status" : "terkirim",
+    "create_time" : "10-02-2001",
+    "author_id" : "1",
+    "email" : "triosaputra308@gmail.com",
+    "post_id" : 1,
+    "url" : "https://localhost:8000"
+}
+response : {
+    "status": "success",
+    "messages": "Berhasil di tambah",
+    "results": {
+        "content": "Seru banget ceritanya, alurnya susah ditebak",
+        "status": "terkirim",
+        "create_time": "10-02-2001",
+        "author_id": "1",
+        "email": "triosaputra308@gmail.com",
+        "post_id": 1,
+        "url": "https://localhost:8000"
+    }
+}
+
+// get{id} 
+request : 
+http://localhost:8005/comment/1
+
+response :{
+    "status": "success",
+    "results": {
+        "id": 1,
+        "content": "Unde sed modi et laboriosam. Quibusdam beatae vitae dolorum voluptatem dolores maxime. Iusto ut ut a quis ipsam sint consectetur. Deleniti error aliquid amet sunt illo.",
+        "author_id": 9,
+        "email": "mitchel61@hotmail.com",
+        "url": "http://www.walter.com/velit-et-sequi-non-natus-eveniet.html",
+        "post_id": 1,
+        "created_at": "2020-07-22T08:04:01.000000Z",
+        "updated_at": "2020-07-22T08:04:01.000000Z"
+    }
+}
+
+// patch 
+
+request :
+{
+    "content" : "Seru banget ceritanya, alurnya tidak mudak ditebak",
+    "author_id" : "1",
+    "email" : "triosaputra308@gmail.com",
+    "post_id" : 1,
+    "url" : "http://localhost.com"
+}
+response :
+{
+    "status": "success",
+    "messages": "Berhasil diupdate"
+}
+
+// delete
+request : 
+http://localhost:8005/comment/22
+response :
+{
+    "status": "success",
+    "messages": "Berhasil dihapus"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -69,18 +69,12 @@ class UserController extends Controller
     public function update(Request $request, $id){
         $author = Author::find($id);
         
-        $username = $request->input("username");
-        $password = $request->input("password");
-        $salt = $request->input("salt");
-        $email = $request->input('email');
-        $profile = $request->input("profile");
+        $author->username = $request->input("username");
+        $author->password = $request->input("password");
+        $author->salt = $request->input("salt");
+        $author->email = $request->input('email');
+        $author->profile = $request->input("profile");
 
-
-        $author->username = $username;
-        $author->password = $password;
-        $author->salt = $salt;
-        $author->email = $email;
-        $author->profile = $profile;
         $author->save();
 
         $data = [
